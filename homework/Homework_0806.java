@@ -12,12 +12,25 @@ public class Homework_0806 {
 		switch(a/1){
 		case 1:{
 			System.out.println("练习三-2");
+			int l1 = 1;
+			int m =0;
+			while(l1<=100) {
+			    m+=l1;
+			    l1++;
+			    System.out.println(m);
+			}
 			
 			break;
 		}
 		case 2:{
 			System.out.println("课后作业.3");
-			
+			double annualSalary=30000;
+			double sumAns=0;
+			for(int i=0;i<10;i++){
+			    annualSalary=annualSalary*Math.pow((1+0.06),i);
+			    sumAns+=annualSalary;
+			}System.out.println("十年后工资："+annualSalary);
+			System.out.println("总工资为:"+sumAns);
 			break;
 		}
 		case 3:{

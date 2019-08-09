@@ -1,3 +1,4 @@
+package homework;
 public class Homework_080101{
 	public static void main(String []args){
 		int a = 48;
