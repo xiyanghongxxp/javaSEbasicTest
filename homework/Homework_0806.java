@@ -1,6 +1,13 @@
 package homework;
 import java.util.*;
 
+/**
+* @ClassName: Homework_0806
+* @Description: TODO(这里用一句话描述这个类的作用)
+* @author neuedu_yjr
+* @date 2019年8月9日 下午1:24:18
+*
+*/
 public class Homework_0806 {
 
 	public static void main(String[] args) {
@@ -26,21 +33,39 @@ public class Homework_0806 {
 			System.out.println("课后作业.3");
 			double annualSalary=30000;
 			double sumAns=0;
-			for(int i=0;i<10;i++){
-			    annualSalary=annualSalary*Math.pow((1+0.06),i);
+			for(int i=1;i<10;i++){
+			    annualSalary=annualSalary*(1+0.06);
 			    sumAns+=annualSalary;
 			}System.out.println("十年后工资："+annualSalary);
-			System.out.println("总工资为:"+sumAns);
+			System.out.println("总工资为:"+(sumAns+30000));
 			break;
 		}
 		case 3:{
 			System.out.println("课后作业.4");
-			
+			int n =1;
+			for(int i=1;i<10;i++) {
+			    n=2*(n+1);
+			}
+			System.out.println(n);
+			System.out.println(Homework_0806.getTotal(10));//构造递归方法，借鉴的，暂时不懂
 			break;
 		}
 		case 4:{
 			System.out.println("课后作业.10");
-			
+			System.out.println("请输入三个数值");
+			int x =scanner.nextInt();
+			int y =scanner.nextInt();
+			int z =scanner.nextInt();
+			int[]m=new int[3];
+			m[0]=x;
+			m[1]=y;
+			m[2]=z;
+			Arrays.sort(m);
+			System.out.print(m[0]);
+			System.out.print(" ");
+			System.out.print(m[1]);
+			System.out.print(" ");
+			System.out.print(m[2]);
 			break;
 		}
 		case 5:{
@@ -49,9 +74,15 @@ public class Homework_0806 {
 			break;
 		}
 		case 6:{
-			System.out.println("课后作业.15")
-			;
+			System.out.println("课后作业.15");
+			int num1=1;
+			int n=scanner.nextInt();
+			for(int i = 1;i<=n;i++) {
+			    num1=num1*i;
+			}
+			System.out.println(num1);
 			break;
+			
 		}
 		case 7:{
 			System.out.println("课后作业.16");
@@ -94,10 +125,12 @@ public class Homework_0806 {
 		case 13:{
 			System.out.println("数组课后作业.6");
 			int[]m= {18,25,7,36,13,2,89,69};
+			int[]n=Arrays.copyOf(m, m.length);
+			Arrays.parallelSort(n);
 			for(int i=0;i<m.length;i++) {
-				for(int j=0;j<m.length-1;j++) {
-					
-				}
+			    if(m[i]==n[n.length-1]) {
+			        System.out.println(i);
+			    }
 			}
 			
 			break;
@@ -109,7 +142,14 @@ public class Homework_0806 {
 		}
 		case 15:{
 			System.out.println("数组课后作业.8");
-			
+			int[]m= {1,9,7,3,5,5,9,7,8,4,6,4,8,4};
+            for(int i=0;i<m.length-1;i++) {
+                for(int j=1;j<m.length-1;j++) {
+                    if(m[i]==m[j]) {
+                        m[j]=0;
+                    }
+                }
+            }System.out.print(Arrays.toString(m));
 			break;
 		}
 		case 16:{
@@ -173,5 +213,13 @@ public class Homework_0806 {
 		
 		}
 	}
+	public static Integer getTotal(Integer n) {
+        // 第十天只剩1个，就返回1
+        if (n == 10) {
+            return 1;
+        }
+        // 每天的桃子数+1再乘以2就是前一天的桃子数，用递归就算算出指定第几天的桃子数
+        return (getTotal(n + 1) + 1) * 2;
+    }
 
 }
